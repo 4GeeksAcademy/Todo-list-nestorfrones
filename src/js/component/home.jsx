@@ -26,18 +26,19 @@ const Home = () => {
 			setMenssagge(false)
 		}
 	}
-	console.log(menssagge);
-
 
 
 	return (
 		<div className="container my-5">
-			<h1 className="text-center">todo</h1>
-			<input className="w-100" type="text" placeholder="ingrese tarea" onChange={(event) => setListItem(event.target.value)} onKeyDown={(e) => addItemList(e)} />
-			<ul className="list-group w-100 d-flex justify-content-between">
-				<h5 className={menssagge ? "" : "d-none"}>No hay tareas pendientes</h5>
-				<ListItem list={list} remove={removeItemList} />
-			</ul>
+			<div className="card border-0 shadow py-3 mb-5 bg-body-tertiary">
+				<h1 className="title text-center p-3">todos</h1>
+				<input className="w-100 p-3 border" type="text" placeholder="ingrese tarea" onChange={(event) => setListItem(event.target.value)} onKeyDown={(e) => addItemList(e)} />
+				<ul className="list-group list-group-flush w-100 d-flex justify-content-between">
+					<h5 className={menssagge ? "" : "d-none"}>No hay tareas pendientes</h5>
+					<ListItem list={list} remove={removeItemList} />
+				</ul>
+				<div id="emailHelp" className={menssagge ? "d-none form-text" : "form-text"}>Quedan {list.length} tareas pendientes!</div>
+			</div>
 		</div>
 	)
 };
